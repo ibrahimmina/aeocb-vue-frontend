@@ -1,30 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" width="25%" />
-    <HelloWorld msg="Hello Vue in CodeSandbox!" />
-    <AtomButton class="md:max-w-xs" :link="{ name: 'Mina', url: '#' }" />
-  </div>
+  <section class="flex flex-col min-h-screen">
+    <OrganismHeader :links="links" />
+    <div class="flex-auto flex flex-wrap bg-white pt-16">
+      <div class="container mx-auto px-4 py-8 md:py-16">
+        <router-view></router-view>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-import AtomButton from "./components/atoms/AtomButton";
+import OrganismHeader from "@/components/organisms/OrganismHeader";
+
 export default {
-  name: "App",
+  name: "Landing",
   components: {
-    HelloWorld,
-    AtomButton,
+    OrganismHeader,
+  },
+  data: () => {
+    return {
+      links: [
+        { name: "Add Item", url: "Create" },
+        { name: "All Items", url: "Index" },
+      ],
+    };
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
