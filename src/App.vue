@@ -15,7 +15,7 @@ import OrganismHeader from "@/components/organisms/OrganismHeader";
 export default {
   name: "Landing",
   components: {
-    OrganismHeader,
+    OrganismHeader
   },
   data: () => {
     return {
@@ -23,6 +23,7 @@ export default {
         { name: "Add Item", url: "Create" },
         { name: "All Items", url: "Index" },
       ],
+      ColumnLabel: "Test",
     };
   },
 };
