@@ -9,7 +9,7 @@
       :placeholder="input.placeholder"
       :required="input.required"
       :requiredString="input.requiredString"
-      v-on:input="onInput"
+      :data.sync="data[input.id]"
     />
   </div>
 </template>
@@ -21,21 +21,10 @@ export default {
   name: "MoleculeInputs",
   props: {
     inputs: [],
-    value: {
-      type: String,
-      default: "",
-    },
+    data: { required: true },
   },
   components: {
     AtomTextInput,
-  },
-  data() {
-    return inputValue;
-  },
-  methods: {
-    onInput: function (value) {
-      this.inputValue = value;
-    },
   },
 };
 </script>

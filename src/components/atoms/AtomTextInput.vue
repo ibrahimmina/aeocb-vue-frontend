@@ -11,8 +11,7 @@
       :id="id"
       type="text"
       :placeholder="placeholder"
-      :value="value"
-      @input="$emit('input', value)"
+      v-model="data.value"
     />
     <p v-if="required === true" class="text-red-500 text-xs italic">
       {{ requiredString }}
@@ -23,6 +22,7 @@
 <script>
 export default {
   props: {
+    data: { required: true },
     id: { type: String, required: false, default: "" },
     label: { type: String, required: false, default: "" },
     vmodel: { type: String, required: false, default: "" },
@@ -40,9 +40,7 @@ export default {
     },
   },
   data() {
-    return {
-      value: {},
-    };
+    return {};
   },
 };
 </script>
